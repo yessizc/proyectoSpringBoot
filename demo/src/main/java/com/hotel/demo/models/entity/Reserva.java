@@ -40,13 +40,16 @@ public class Reserva  implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date FechaSalida;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "Idusuario")
 	private Usuario usuario;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="Idfactura")
 	private Factura factura;
+
+
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

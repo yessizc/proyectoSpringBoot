@@ -31,9 +31,11 @@ public class Habitacion implements Serializable{
 	@NotEmpty
 	@Column(name="estado")
 	private Boolean estado;
+
+
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="Ireserva")
+	@JoinColumn(name="Idreserva")
 	private Reserva reserva;
 
 	public static long getSerialversionuid() {

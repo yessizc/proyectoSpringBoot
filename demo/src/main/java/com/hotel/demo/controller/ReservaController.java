@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller // puente entre el cliente y el servidor solo recive datos, no lleva logica.
-@RequestMapping("/reserva") // esta es la url
+@RequestMapping("/Reserva") // esta es la url
 public class ReservaController {
 
     @Autowired // es una inyeccion de dependecioas de servicios
