@@ -2,6 +2,7 @@ package com.hotel.demo.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -40,9 +42,9 @@ public class Reserva  implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date FechaSalida;
 	
-	@OneToOne( cascade = CascadeType.ALL)
+	@OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name = "Idusuario")
-	private Usuario usuario;
+	private List<Usuario> usuario;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="Idfactura")
@@ -79,11 +81,11 @@ public class Reserva  implements Serializable{
 		FechaSalida = fechaSalida;
 	}
 
-	public Usuario getUsuario() {
+	public List<Usuario> getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(List<Usuario> usuario) {
 		this.usuario = usuario;
 	}
 

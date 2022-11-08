@@ -33,7 +33,7 @@ public class Usuario  implements Serializable{
 	
 	@NotEmpty
 	@Column(name="telefono")
-	private Integer telefono;
+	private String telefono;
 
 	public Long getId() {
 		return id;
@@ -59,11 +59,11 @@ public class Usuario  implements Serializable{
 		this.email = email;
 	}
 
-	public Integer getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	

@@ -2,13 +2,12 @@ package com.hotel.demo.models.Dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.hotel.demo.models.entity.Reserva;
 
 
-public interface IReservaDao {
-	public List<Reserva> findAll();
-	public void save (Reserva reserva);
-	public Reserva findOne (Long id);
-	public void delete (Long id);
+public interface IReservaDao extends JpaRepository<Reserva, Integer>{
+	
 
 }

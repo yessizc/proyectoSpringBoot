@@ -12,6 +12,7 @@ import com.hotel.demo.models.entity.Reserva;
 import com.hotel.demo.models.service.IReservaService;
 
 import java.util.Map;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -50,17 +51,17 @@ public class ReservaController {
             return "formulario";
         }
         reservaService.save(reserva);
-        return "redirect:/reserva/listar";
+        return "redirect:/Reserva/listar";
     }
 
     @GetMapping("/formulario/{id}")
     public String editar(@PathVariable Long id,Map<String,Object>model){
-        Reserva reserva =null;
+        Optional<Reserva> reserva =null;
         if (id >0){
             reserva = reservaService.findOne(id);
         }
         else{
-            return "redirect:reserva/listar";
+            return "redirect:Reserva/listar";
         }
         model.put("reserva",reserva);
         model.put("titulo","editar reserva");
@@ -71,7 +72,7 @@ public class ReservaController {
     public String eliminar (@PathVariable Long id){
         if(id >0)
         reservaService.delete(id);
-        return "redirect:/reserva/listar";
+        return "redirect:/Reserva/listar";
     }
 
 

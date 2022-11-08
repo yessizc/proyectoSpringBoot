@@ -2,6 +2,8 @@
 package com.hotel.demo.models.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,13 +33,13 @@ public class ReservaServiceImp  implements IReservaService{
 
     @Transactional(readOnly = true)
     @Override
-    public Reserva findOne(Long id) {
-        return reservaDao.findOne(id);
+    public Optional<Reserva> findOne(Long id) {
+        return reservaDao.findById(id.intValue());
     }
 
     @Override
     public void delete(Long id) {
-        reservaDao.delete(id);
+        reservaDao.deleteById(id.intValue());
         
     }
     

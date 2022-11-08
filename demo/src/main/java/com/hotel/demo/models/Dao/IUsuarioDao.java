@@ -2,13 +2,14 @@ package com.hotel.demo.models.Dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.hotel.demo.models.entity.Usuario;
 
-public interface IUsuarioDao {
-    public List<Usuario> findAll();
-	public void save (Usuario reserva);
-	public Usuario findOne (Long id);
-	public void delete (Long id);
+@Repository
+public interface IUsuarioDao extends JpaRepository<Usuario, Integer>{
+    
 
     
 }
