@@ -1,5 +1,6 @@
 package com.hotel.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -24,11 +25,11 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService usuarioService;
 
-    @GetMapping("/litarUs")
+    @GetMapping("/listarUs")
     public String listar(Model model){
         model.addAttribute("titulo", "listado de ususarios");
         model.addAttribute("usuarios", usuarioService.findAll());
-         return "listarUs";
+        return "listarus";
 
 
     
@@ -44,15 +45,12 @@ public class UsuarioController {
     
     @PostMapping ("/formularioUs")//peticion para guarda los datos en db
     public String guardar (@Valid Usuario usuario, BindingResult result, Model model){
-        System.out.println(usuario.getNombre());
-        System.out.println(usuario.getEmail());
-        System.out.println(usuario.getTelefono());
         if (result.hasErrors()){
             model.addAttribute("titulo", "formulario de usuario");
             return "formularioUs";
         }
         usuarioService.save(usuario);
-        return "redirect:/Usuario/listar";
+        return "redirect:/Usuario/listarUs";
     }
 
     @GetMapping("/formularioUs/{id}")
@@ -73,7 +71,7 @@ public class UsuarioController {
     public String eliminar (@PathVariable Long id){
         if(id >0)
         usuarioService.delete(id);
-        return "redirect:/Usuario/listar";
+        return "redirect:/Usuario/listarUs";
     }
 
 

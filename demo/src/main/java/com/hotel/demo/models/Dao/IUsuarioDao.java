@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.hotel.demo.models.entity.Usuario;
 
 @Repository
-public interface IUsuarioDao extends JpaRepository<Usuario, Integer>{
+public interface IUsuarioDao extends JpaRepository<Usuario, Long>{
     
 
     

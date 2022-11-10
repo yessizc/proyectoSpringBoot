@@ -33,12 +33,12 @@ public class UsuarioServiceImp implements IUsuarioService{
     @Override
     public Optional<Usuario> findOne(Long id) {
         
-        return usuarioDao.findById(id.intValue());
+        return usuarioDao.findById(id);
     }
 
     @Override
     public void delete(Long id) {
-        usuarioDao.deleteById(id.intValue());
+        usuarioDao.deleteById(id);
         
     }
     
