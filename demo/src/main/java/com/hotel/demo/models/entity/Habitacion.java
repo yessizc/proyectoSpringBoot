@@ -23,20 +23,22 @@ public class Habitacion implements Serializable{
 	@Column(name="id")
 	private Long id;
 	
+	@Column(name="numero")
+	private int numero;
 	
 	@NotEmpty
 	@Column(name="detalle")
 	private String detalle;
 	
-	@NotEmpty
 	@Column(name="estado")
-	private Boolean estado;
+	private boolean estado;
+
+	@Column(name="precio")
+	private int precio;
 
 
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="Idreserva")
-	private Reserva reserva;
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -58,20 +60,28 @@ public class Habitacion implements Serializable{
 		this.detalle = detalle;
 	}
 
-	public Boolean getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
-	public Reserva getReserva() {
-		return reserva;
+	public int getNumero() {
+		return numero;
 	}
 
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 	
 

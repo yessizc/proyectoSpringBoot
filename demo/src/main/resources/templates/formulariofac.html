@@ -17,17 +17,24 @@
     <div class="container">
         <h2>Registros</h2>
         
-          <form method="post" action="formulario">
+          <form method="post" th:action="@{/Factura/formulariofac}">
+            <input type="hidden" name="id" th:field="${factura.id}">
             <div class="form-group">
-                <label for="date">Fecha Ingreso:</label>
-                <input type="date" class="form-control" id="fechai" placeholder="Ingrese dia de inicio" name="FechaIngreso">
+                <label for="text">Servicio:</label>
+                <input type="text" class="form-control" id="Servicio" placeholder="Ingrese el servicio " name="servicio" th:field="${factura.servicio}">
               </div>
           <div class="form-group">
-            <label for="date">Fecha Salida:</label>
-            <input type="date" class="form-control" id="fechas" placeholder="Ingrese dia final" name="FechaSalida">
+            <label for="text">Costo:</label>
+            <input type="text" class="form-control" id="costo" placeholder="Ingrese el valor total" name="costo" th:field="${factura.costo}">
+          </div>
+          <div class="form-group">
+            <label for="text">Detalles:</label>
+            <input type="text" class="form-control" id="Detalles" placeholder="Ingrese su correo" name="detalles" th:field="${factura.Detalles}">
           </div>
         
+          
           <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
         </form>
       </div>
 </body>
